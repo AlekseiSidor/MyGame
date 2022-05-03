@@ -9,8 +9,8 @@ public class Patron {
     Timer timer;
     Image img;
     Image img2;
-    private int x=20,y=20;
-    private int x1=120,y1=120;
+    private int x=70,y=20;
+    int x1 = 880;
 
     public Patron(){
         player = new Player();
@@ -25,21 +25,34 @@ public class Patron {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //timer = new Timer(1,e ->shoot());
     }
-    public void move (int x, int y) {
+    public void move (int x) {
         this.x += x;
-        this.y += y;
     }
 
-    public void draw(Graphics g){
-        g.drawImage(img, x, player.getY(), 50,25,null);
+    public void remove (int x) {
+        this.x -= x;
     }
-    public void draw1(Graphics g){
+
+    public void draw(Graphics g,int x,int y){
+        g.drawImage(img, x, y, 50,25,null);
+        if (x1 < 0) {
+            x1 = 80;
+        }
+    }
+    public void draw1(Graphics g,int x,int y){
         g.drawImage(img2, x, y, 50,25,null);
+        if (x > 1050){
+            x = 70;
+        }
     }
 
     public void shoot(){
-        x += 1;
+        move(20);
+    }
+    public void shoot1(){
+        move(-20);
     }
 
 
@@ -75,19 +88,11 @@ public class Patron {
         this.img2 = img2;
     }
 
-    public int getX1() {
-        return x1;
+    public Timer getTimer() {
+        return timer;
     }
 
-    public void setX1(int x1) {
-        this.x1 = x1;
-    }
-
-    public int getY1() {
-        return y1;
-    }
-
-    public void setY1(int y1) {
-        this.y1 = y1;
+    public void setTimer(Timer timer) {
+        this.timer = timer;
     }
 }

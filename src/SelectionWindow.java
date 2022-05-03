@@ -1,13 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
 
 public class SelectionWindow extends JFrame {
     private final int WIDTH = 500, HEIGHT = 600;
     JPanel panel;
     public SelectionWindow(){
         super();
-        setTitle("Вход");
+        setTitle("Выбирай, что делать");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
         panel = new JPanel();
@@ -32,6 +33,7 @@ public class SelectionWindow extends JFrame {
 
         JButton table = new JButton("ТАБЛИЦА");
         table.setBounds(280,200,100,30);
+        table.addActionListener(e -> tableClick(e));
         panel.add(table);
 
         JButton back = new JButton("НАЗАД");
@@ -41,15 +43,24 @@ public class SelectionWindow extends JFrame {
     }
 
     private void playClick(ActionEvent e){
-        PlayWindow window = new PlayWindow();
+        PlayWindow window = new PlayWindow(new User());
         setVisible(false);
         window.run();
+        dispose();
     }
 
     private void backClick(ActionEvent e){
         AutorizationWindow window = new AutorizationWindow();
-        setVisible(false);
         window.run();
+        setVisible(false);
+        dispose();
+    }
+
+    private void tableClick(ActionEvent e){
+        StatsWindow w = new StatsWindow();
+        w.run();
+        setVisible(false);
+        dispose();
     }
 
     public void run(){
