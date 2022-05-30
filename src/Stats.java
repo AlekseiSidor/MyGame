@@ -26,7 +26,7 @@ public class Stats {
 
     public String getInsertQuery() {
         String query = "INSERT INTO 'stats' ('WinnerOrNo', 'user_id', 'timeBattleForSeconds', 'VS') " +
-                "VALUES ('" + (this.WinnerOrNo ? "победил":"проиграл") + "', '" + this.user_id + "', '"
+                "VALUES ('" + (this.WinnerOrNo ? "1":"0") + "', '" + this.user_id + "', '"
                 + this.timeBattleForSeconds + "', '" + this.vs +
                 "');";
         System.out.println(query);

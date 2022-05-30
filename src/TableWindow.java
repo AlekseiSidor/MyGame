@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TableWindow extends JFrame {
-    private int HEIGHT = 800, WIDTH = 800;
+    private int HEIGHT = 600, WIDTH = 800;
     private User currentUser;
     String[] columns;
     JTable table;
@@ -33,9 +33,8 @@ public class TableWindow extends JFrame {
         int n = mas.size();
         String ans[][] = new String[n][4];
         for (int i = 0; i < n; i++){
-            //ans[i][0] = mas.get(i).getId() + "";
             ans[i][0] = mas.get(i).getId() + "";
-            ans[i][1] = (mas.get(i).isWinnerOrNo() ? "Да" : "Нет");
+            ans[i][1] = mas.get(i).isWinnerOrNo()+"";
             ans[i][2] = mas.get(i).getTimeBattleForSeconds() + "";
             ans[i][3] = mas.get(i).getVs();
         }
@@ -45,12 +44,16 @@ public class TableWindow extends JFrame {
     private void addWidgets() {
         setLayout(null);
 
+        JButton back = new JButton("НАЗАД");
+        back.setBounds(10,550,100,30);
+        back.addActionListener(e -> back());
+        panel.add(back);
+
         String data[][] = new String[0][];
         try {
             data = convertStatsToStrings(DBconnector.getStats(currentUser));
             columns = new String[]{"id", "Победил", "Время битвы", "Играл против"};
             model = new DefaultTableModel(data, columns);
-            //model.addTableModelListener(this);
             table = new JTable(model);
             JScrollPane tableWithScroll = new JScrollPane(table);
             tableWithScroll.setBounds(5, 80, 790, 515);
@@ -58,9 +61,14 @@ public class TableWindow extends JFrame {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
         JLabel nameLBL = new JLabel(currentUser.getName());
         nameLBL.setBounds(15, 25, 150, 25);
         panel.add(nameLBL);
+    }
+    public void back(){
+        SelectionWindow w = new SelectionWindow();
+        w.run();
+        setVisible(false);
+        dispose();
     }
 }

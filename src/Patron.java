@@ -37,22 +37,9 @@ public class Patron {
 
     public void draw(Graphics g,int x,int y){
         g.drawImage(img, x, y, 50,25,null);
-        if (x1 < 0) {
-            x1 = 80;
-        }
     }
     public void draw1(Graphics g,int x,int y){
         g.drawImage(img2, x, y, 50,25,null);
-        if (x > 1050){
-            x = 70;
-        }
-    }
-
-    public void shoot(){
-        move(20);
-    }
-    public void shoot1(){
-        move(-20);
     }
 
 

@@ -76,15 +76,4 @@ public class DBconnector{
             list.add(new Stats(resSet));
         return list;
     }
-
-    //public static ArrayList<News> getNews(User user) throws SQLException {
-      //  String query = "SELECT * FROM news\n" +
-       //         "WHERE private = 0 OR user_id = " + user.getId();
-      //  System.out.println(query);
-      //  resSet = statmt.executeQuery(query);
-     //   ArrayList<News> list = new ArrayList<>();
-    //    while(resSet.next())
-     //       list.add(new News(resSet));
-     //   return list;
-   // }
 }

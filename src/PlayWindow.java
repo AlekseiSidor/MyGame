@@ -6,8 +6,10 @@ import java.awt.event.KeyListener;
 import java.sql.SQLException;
 
 public class PlayWindow extends JFrame {
+    static boolean winnerOrNo;
+    static boolean winnerOrNo1;
     boolean b = true;
-    Timer seconds;
+    static Timer seconds;
     static int second = 0;
     MyPanel panel;
     static String vs;
@@ -30,7 +32,6 @@ public class PlayWindow extends JFrame {
          @Override
          public void keyPressed(KeyEvent e) {
             panel.control_player(e);
-            //panel.control_player1(e);
          }
 
          @Override
@@ -38,9 +39,13 @@ public class PlayWindow extends JFrame {
 
          }
      }
+     public PlayWindow(){
+
+     }
 
     public PlayWindow(User user){
         super();
+        second = 0;
         p = new MyPanel();
         window = new AutorizationWindow();
         this.user = user;
@@ -53,7 +58,7 @@ public class PlayWindow extends JFrame {
         addWidgets();
         panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         pack();
-        setLocation(100, 100);
+        setLocation(100, 0);
         addKeyListener(new keylistener());
         setFocusable(true);
         Timer t = new Timer(1000,e -> timer());
@@ -64,6 +69,7 @@ public class PlayWindow extends JFrame {
 
      private void seconds(){
       second++;
+
       System.out.println(second);
       if (!b) {
           seconds.stop();
@@ -102,26 +108,10 @@ public class PlayWindow extends JFrame {
     }
 
     private Stats validateFields(){
-        boolean winnerOrNo;
-         if (p.getAbc() == 1) {
-             winnerOrNo = true;
-         }else{
-             winnerOrNo = false;
-         }
-         int timeBattleForSeconds = p.second;
-        System.out.println(AutorizationWindow.getUser_id_stats());
          return new Stats(winnerOrNo,id,PlayWindow.second,vs);
     }
 
     private Stats validateFields1(){
-        boolean winnerOrNo1;
-        if (p.getAbc() == 1) {
-            winnerOrNo1 = false;
-        }else{
-            winnerOrNo1 = true;
-        }
-        //int timeBattleForSeconds = p.second;
-        System.out.println(AutorizationWindow.getUser_id_stats());
         return new Stats(winnerOrNo1,id1,PlayWindow.second,vs1);
     }
 
@@ -130,5 +120,9 @@ public class PlayWindow extends JFrame {
         window.run();
         setVisible(false);
         dispose();
+    }
+
+    public void setB(boolean b) {
+        this.b = b;
     }
 }
