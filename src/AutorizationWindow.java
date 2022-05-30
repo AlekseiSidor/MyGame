@@ -81,7 +81,7 @@ public class AutorizationWindow extends JFrame {
             String password = String.valueOf(passwordTF.getPassword());
             user = DBconnector.autorization(login, password);
             PlayWindow.id = user.getId();
-            System.out.println("id = "+user.getId());
+            //System.out.println("id = "+user.getId());
             toMainScreen(user);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ошибка авторизации");

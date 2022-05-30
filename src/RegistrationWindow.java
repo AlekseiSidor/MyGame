@@ -102,7 +102,7 @@ public class RegistrationWindow extends JFrame {
 
     private User validateFields(){
         login = loginTF.getText();
-        System.out.println(login);
+        //System.out.println(login);
         String password = String.valueOf(passwordTF.getPassword());;
         String name = nameTF.getText();
         String age_text = ageTF.getText();

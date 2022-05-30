@@ -33,7 +33,7 @@ public class DBconnector{
                 "    age      INTEGER\n" +
                 ");");
 
-        System.out.println("yes");
+        //System.out.println("yes");
     }
 
     private static void createStatsTable() throws ClassNotFoundException,SQLException{
@@ -60,10 +60,10 @@ public class DBconnector{
         String query = "SELECT * FROM users " +
                 "WHERE login = '" + login + "' AND " +
                 "password = '" + password + "';";
-        System.out.println(query);
+       // System.out.println(query);
         resSet = statmt.executeQuery(query);
         User user = new User(resSet);
-        System.out.println(user.getName());
+       // System.out.println(user.getName());
         return user;
     }
 

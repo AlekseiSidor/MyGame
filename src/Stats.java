@@ -29,7 +29,7 @@ public class Stats {
                 "VALUES ('" + (this.WinnerOrNo ? "1":"0") + "', '" + this.user_id + "', '"
                 + this.timeBattleForSeconds + "', '" + this.vs +
                 "');";
-        System.out.println(query);
+       // System.out.println(query);
         return query;
     }
 

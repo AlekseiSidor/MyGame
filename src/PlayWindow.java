@@ -69,8 +69,6 @@ public class PlayWindow extends JFrame {
 
      private void seconds(){
       second++;
-
-      System.out.println(second);
       if (!b) {
           seconds.stop();
       }

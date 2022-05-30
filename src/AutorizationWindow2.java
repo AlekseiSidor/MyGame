@@ -77,7 +77,7 @@ public class AutorizationWindow2 extends JFrame {
                 PlayWindow.vs1 = AutorizationWindow.login;
                 PlayWindow.vs = AutorizationWindow2.login;
                 PlayWindow.id1 = user.getId();
-                System.out.println("vs1= " + PlayWindow.vs1);
+                //System.out.println("vs1= " + PlayWindow.vs1);
                 toMainScreen(user);
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "Ошибка авторизации");

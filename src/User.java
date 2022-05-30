@@ -31,7 +31,7 @@ public class User {
         String query = "INSERT INTO 'users' ('login', 'password', 'name', 'age') " +
                 "VALUES ('" + this.login + "', '" + this.password + "', '" + this.name +
                 "', '" + this.age + "');";
-        System.out.println(query);
+        //System.out.println(query);
         return query;
     }
 

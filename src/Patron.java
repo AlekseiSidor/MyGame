@@ -27,13 +27,6 @@ public class Patron {
         }
         //timer = new Timer(1,e ->shoot());
     }
-    public void move (int x) {
-        this.x += x;
-    }
-
-    public void remove (int x) {
-        this.x -= x;
-    }
 
     public void draw(Graphics g,int x,int y){
         g.drawImage(img, x, y, 50,25,null);

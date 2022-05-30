@@ -23,7 +23,7 @@ public class TableWindow extends JFrame {
         getContentPane().add(panel);
         pack();
         addWidgets();
-        System.out.println(currentUser.getName());
+        //System.out.println(currentUser.getName());
     }
     public void run(){
         setVisible(true);
